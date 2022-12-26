@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUERY</title>
+</head>
+<body>
+    <div id="curso"></div>
+
+
+    <script src="jquery/jquery-1.11.0.min.js"></script>
+    <script>
+
+        $.ajax({
+            url:'evtFechamentoeFinanceira.xml'
+        }).then(sucesso,falha);
+
+        function sucesso(file){
+           console.log(file);
+        }
+
+        function falha(){
+            $('#sucesso').html("Falha ao carregar...");
+        }
+    </script>
+</body>
+</html>
