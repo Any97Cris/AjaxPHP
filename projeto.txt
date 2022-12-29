@@ -12,6 +12,7 @@
     [X] - excluir
 
 => Funções
-    [] - Listar dados
-    [] - Mostrar Dados editar
-    [] - Excluir Dados
+    [X] - Cadastrar
+    [] - Listar 
+    [] - Mostrar
+    [] - Excluir 
