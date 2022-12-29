@@ -1,0 +1,7 @@
+=> Tela Principal
+    [X] - tabela que liste os dados do banco
+    [X] - botão cadastrar
+    [X] - botão editar
+    [X] - botão deletar
+    [X] - input pesquisar
+    [X] - botão pesquisar
