@@ -13,6 +13,6 @@
 
 => Funções
     [X] - Cadastrar
-    [] - Listar 
+    [X] - Listar 
     [] - Mostrar
     [] - Excluir 
