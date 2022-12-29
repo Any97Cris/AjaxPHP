@@ -17,27 +17,27 @@ class produto
     }
 
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
 
     public function setNome($n){
-        $this->$nome = ucwords(trim($n));
+        $this->nome = ucwords(trim($n));
     }
 
     public function getPreco(){
-        return $this->$preco;
+        return $this->preco;
     }
 
     public function setPreco($p){
-        $this->$preco = $p;
+        $this->preco = $p;
     }
 
     public function getQuantidade(){
-        return $this->$quantidade;
+        return $this->quantidade;
     }
 
     public function setQuantidade($q){
-        $this->$quantidade = $q;
+        $this->quantidade = $q;
     }
 }
 
