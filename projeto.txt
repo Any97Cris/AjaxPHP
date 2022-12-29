@@ -5,3 +5,13 @@
     [X] - botão deletar
     [X] - input pesquisar
     [X] - botão pesquisar
+
+=> Modais 
+    [] - Cadastrar
+    [] - editar
+    [] - excluir
+
+=> Funções
+    [] - Listar dados
+    [] - Mostrar Dados editar
+    [] - Excluir Dados
