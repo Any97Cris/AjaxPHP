@@ -1,3 +1,7 @@
+<?php
+    require_once 'database/database.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
 </head>
-<body class="bg-dark">
+<body>
     <div class="container">
         <h1 class="mt-5 mb-5 text-center colorTextWhite">Produtos Informática</h1>
         <div class="input-group text-center mb-5">
@@ -18,7 +22,7 @@
 
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Digite a sua pesquisa..." aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
+            <button class="btn btn-outline-dark" type="button" id="button-addon2">Pesquisar</button>
         </div>
 
         <table class="table table-dark" width="100%">
