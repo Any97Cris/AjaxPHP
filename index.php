@@ -166,7 +166,7 @@
                     console.log("Deu ruim");
                 }
             }
-        })
+        });
     </script>
 </body>
 </html>
