@@ -7,9 +7,9 @@
     [X] - botão pesquisar
 
 => Modais 
-    [] - Cadastrar
-    [] - editar
-    [] - excluir
+    [X] - Cadastrar
+    [X] - editar
+    [X] - excluir
 
 => Funções
     [] - Listar dados
