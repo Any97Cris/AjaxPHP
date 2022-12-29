@@ -20,5 +20,26 @@ class ProdutoDAU implements produtoDAO{
         return $pro;
     }
 
+    public function findAll(){
+        $array = [];
+        $sql = $this->pdo->query("SELECT * FROM produto");
+
+        if($sql->rowCount() > 0){
+            $data = $sql->fetchAll();
+
+            foreach($data as $item){
+                $produt = new Produto();
+                $produt->setId($item['id']);
+                $produt->setNome($item['nome']);
+                $produt->setPreco($item['preco']);
+                $produt->setQuantidade($item['quantidade']);
+
+                $array[] = $produt;
+            }
+        }
+
+        return $array;
+    }
+
 }
 ?>
