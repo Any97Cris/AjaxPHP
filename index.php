@@ -1,5 +1,11 @@
 <?php
     require_once 'database/database.php';
+    require_once 'dao/ProdutoDAO.php';
+    require_once 'model/Produto.php';
+
+    $produtoDAO = new ProdutoDAU($pdo);
+    $produtos = $produtoDAO->findAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +40,20 @@
                     <th width="15%" class="text-center">Ações</th>
                 </tr>                
             </thead>
+            <?php foreach($produtos as $produto) : ?>
             <tbody>
                 <tr>
-                    <td>Teste</td>
-                    <td>Teste</td>
-                    <td>Teste</td>
+                    <td><?= $produto->getNome(); ?></td>
+                    <td><?= $produto->getPreco(); ?></td>
+                    <td><?= $produto->getQuantidade(); ?></td>
                     <td class="text-center">
                         <a class="btns" data-bs-toggle="modal" data-bs-target="#exampleModal2"><ion-icon name="create-outline"></ion-icon></a>
                         <a class="btns" data-bs-toggle="modal" data-bs-target="#exampleModal3"><ion-icon name="trash-outline"></a>
                     </td>
                 </tr>                
             </tbody>
+
+            <?php endforeach ?>
         </table>
     </div>
 
