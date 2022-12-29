@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -60,7 +60,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nome Produto</label>
-                            <input type="text" class="form-control" name="produto" id="produtoId" placeholder="Digite o nome do Produto...">
+                            <input type="text" class="form-control" name="nome" id="nomeId" placeholder="Digite o nome do Produto...">
                         </div>
 
                         <div class="mb-3">
@@ -142,5 +142,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="src/jquery/jquery-3.6.3.min.js"></script>
+
+    <script>
+        $('#formCadastrar').submit(function(e){
+            e.preventDefault();
+            var formulario = $(this);
+            var retorno = InsertDados(formulario);
+
+            function InsertDados(dados){
+                $.ajax({
+                    type:"POST",
+                    data:dados.serialize(),
+                    url:"create.php",
+                    async: false
+                }).then(sucesso, falha);
+
+                function sucesso(data){                   
+                    $('#exampleModal').hide();
+                }
+
+                function falha(){
+                    console.log("Deu ruim");
+                }
+            }
+        })
+    </script>
 </body>
 </html>
