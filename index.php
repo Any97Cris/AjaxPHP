@@ -6,6 +6,21 @@
     $produtoDAO = new ProdutoDAU($pdo);
     $produtos = $produtoDAO->findAll();
 
+    // $prod = false;
+    $id = filter_input(INPUT_GET, 'id');
+    $prod = $produtoDAO->findById($id);
+
+    var_dump($id);
+    exit;
+    // if($id){
+    //     $prod = $produtoDAO->findById($id);
+    // }
+
+    // if($prod === false){
+    //     header("Location: index.php");
+    //     exit;
+    // }
+
 ?>
 
 <!DOCTYPE html>
@@ -104,17 +119,20 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nome Produto</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome do Produto...">
+                           
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Preço</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="R$ 00,00">
+                            
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Quantidade</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Quantidade">
+                            
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -176,6 +194,29 @@
                 }
             }
         });
+
+        $('#formEditar').submit(function(e){
+            e.preventDefault();
+            var formularioEditar = $(this);
+            var retorno = editDados(formularioEditar);
+
+            function editDados(dados){
+                $.ajax({
+                    type: "POST",
+                    data: dados.serialize(),
+                    url: "edit.php",
+                    async: false
+                }).then(sucesso, falha);
+
+                function sucesso(){
+                    console.log("Deu certo!");
+                }
+
+                function falha(){
+                    consolhe.log("Deu ruim");
+                }
+            }
+        })
     </script>
 </body>
 </html>

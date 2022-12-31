@@ -14,5 +14,5 @@
 => Funções
     [X] - Cadastrar
     [X] - Listar 
-    [] - Mostrar
+    [] - Editar
     [] - Excluir 

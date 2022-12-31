@@ -41,5 +41,23 @@ class ProdutoDAU implements produtoDAO{
         return $array;
     }
 
+    public function findById($id){
+        $sql = $this->pdo->prepare("SELECT * FROM produto WHERE id = :id");
+        $sql->bindValue(':id',$id);
+
+        if($sql->rowCount() > 0){
+            $data = $sql->fetch();
+
+            $prod = new Produto();
+            $prod->seyId($data['nome']);
+            $prod->setPreco($data['preco']);
+            $prod->setPreco($data['quantidade']);
+
+            return $prod;
+        }else{
+            return false;
+        }
+    }
+
 }
 ?>

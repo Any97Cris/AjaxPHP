@@ -44,6 +44,8 @@ class produto
 interface produtoDAO{
     public function add(Produto $pro);
     public function findAll();
+    public function findById($id);
+    //public function update(Produto $pro);
 }
 
 ?>
