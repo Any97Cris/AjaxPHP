@@ -8,18 +8,11 @@
 
     // $prod = false;
     $id = filter_input(INPUT_GET, 'id');
-    $prod = $produtoDAO->findById($id);
+    
+    if($id){
+        $prod = $produtoDAO->findById($id);
+    }    
 
-    var_dump($id);
-    exit;
-    // if($id){
-    //     $prod = $produtoDAO->findById($id);
-    // }
-
-    // if($prod === false){
-    //     header("Location: index.php");
-    //     exit;
-    // }
 
 ?>
 
@@ -62,7 +55,7 @@
                     <td><?= $produto->getPreco(); ?></td>
                     <td><?= $produto->getQuantidade(); ?></td>
                     <td class="text-center">
-                        <a class="btns" data-bs-toggle="modal" data-bs-target="#exampleModal2"><ion-icon name="create-outline"></ion-icon></a>
+                        <a href="index.php?id=<?= $produto->getId(); ?>" class="btns" data-bs-toggle="modal" data-bs-target="#exampleModal2"><ion-icon name="create-outline"></ion-icon></a>
                         <a class="btns" data-bs-toggle="modal" data-bs-target="#exampleModal3"><ion-icon name="trash-outline"></a>
                     </td>
                 </tr>                
@@ -118,20 +111,17 @@
                 <form id="formEditar">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nome Produto</label>
-                           
+                            <label for="exampleFormControlInput1" class="form-label">Nome Produto</label>                           
                             <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Preço</label>
-                            
+                            <label for="exampleFormControlInput1" class="form-label">Preço</label>                            
                             <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Quantidade</label>
-                            
+                            <label for="exampleFormControlInput1" class="form-label">Quantidade</label>                            
                             <input type="text" class="form-control" id="exampleFormControlInput1">
                         </div>
                     </div>
@@ -185,8 +175,9 @@
                     async: false
                 }).then(sucesso, falha);
 
-                function sucesso(data){                   
-                    $('#exampleModal').hide();
+                function sucesso(data){ 
+                    console.log("Deu certo");
+                    reload();
                 }
 
                 function falha(){
